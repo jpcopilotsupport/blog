@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for post in posts %}
+  <url>
+    <loc>{{ post.permalink | uriencode }}</loc>
+    {% if post.lastupdate %}
+    {% if post.lastupdate.toISOString %}
+    <lastmod>{{ post.lastupdate | formatDate }}</lastmod>
+    {% else %}
+    <lastmod>{{ post.lastupdate }}</lastmod>
+    {% endif %}
+    {% elif post.updated %}
+    <lastmod>{{ post.updated.clone().tz(config.timezone).format() }}</lastmod>
+    {% elif post.date %}
+    <lastmod>{{ post.date.clone().tz(config.timezone).format() }}</lastmod>
+    {% endif %}
+  </url>
+  {% endfor %}
+  <url>
+    <loc>{{ config.url | uriencode }}</loc>
+    <lastmod>{{ sNow.toISOString() }}</lastmod>
+  </url>
+  {% for tag in tags %}
+  <url>
+    <loc>{{ tag.permalink | uriencode }}</loc>
+  </url>
+  {% endfor %}
+  {% for category in categories %}
+  <url>
+    <loc>{{ category.permalink | uriencode }}</loc>
+  </url>
+  {% endfor %}
+</urlset>

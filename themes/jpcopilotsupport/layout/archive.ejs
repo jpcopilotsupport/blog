@@ -1,0 +1,5 @@
+<% if (page.archive && !page.year) { %>
+  <%- partial('_partial/archive-year-index') %>
+<% } else { %>
+  <%- partial('_partial/archive', {pagination: config.archive, index: true}) %>
+<% } %>

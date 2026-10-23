@@ -1,0 +1,46 @@
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  サポート情報: https://cssjpn.github.io/
+  Microsoft Copilot Blog: https://www.microsoft.com/en-us/copilot/blog/
+  US Microsoft 365 Developer Blog: https://devblogs.microsoft.com/microsoft365dev/
+  About: /about
+
+rss: /atom.xml
+
+# Content
+excerpt_link: Read More
+
+# Sidebar
+sidebar: right
+widgets:
+- category
+- tag
+# - tagcloud
+- recent_posts
+- archive
+
+# display widgets at the bottom of index pages (pagination == 2)
+index_widgets:
+# - category
+# - tagcloud
+# - archive
+
+# widget behavior
+archive_type: 'monthly'
+show_count: true
+
+favicon:
+  ico: icons/favicon.ico
+  small: icons/favicon-16x16.png
+  medium: icons/favicon-32x32.png
+  apple_touch_icon: icons/apple-touch-icon.png
+  webmanifest: icons/site.webmanifest
+  safari_pinned_tab: icons/safari-pinned-tab.svg
+  ms_browserconfig: icons/browserconfig.xml
+
+twitter:
+google_plus:
+fb_admins:
+fb_app_id:

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <%
+  var title = page.title;
+
+  if (is_archive()){
+    title = __('archive_a');
+
+    if (is_month()){
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()){
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    title = __('category') + ': ' + page.category;
+  } else if (is_tag()){
+    title = __('tag') + ': ' + page.tag;
+  }
+  %>
+  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <%
+    var openGraphOptions = {twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id};
+    if (page.layout === 'archived') {
+      openGraphOptions.date = false;
+      openGraphOptions.updated = false;
+    }
+  %>
+  <%- open_graph(openGraphOptions) %>
+  <% if (theme.rss){ %>
+    <link rel="alternate" href="<%= url_for(theme.rss) %>" title="<%= config.title %>" type="application/atom+xml">
+  <% } %>
+  <% if (theme.favicon) { %>
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= url_for(theme.favicon.apple_touch_icon) %>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= url_for(theme.favicon.medium) %>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= url_for(theme.favicon.small) %>">
+    <link rel="manifest" href="<%= url_for(theme.favicon.webmanifest) %>">
+    <link rel="mask-icon" href="<%= url_for(theme.favicon.safari_pinned_tab) %>" color="#1aa1f0">
+    <link rel="shortcut icon" href="<%= url_for(theme.favicon.ico) %>">
+    <meta name="msapplication-TileColor" content="#ffb152">
+    <meta name="msapplication-config" content="<%= url_for(theme.favicon.ms_browserconfig) %>">
+    <meta name="theme-color" content="#1aa1f0">
+  <% } %>
+  <% if (config.highlight.enable){ %>
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <% } %>
+  <%- css('css/style') %>
+</head>
