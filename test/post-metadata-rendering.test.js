@@ -9,7 +9,7 @@ const yaml = require('js-yaml');
 const Hexo = require('hexo');
 const { TRANSLATION_SUFFIX, validateFile } = require('../scripts/validate-translated-posts');
 
-test('renders articles and public attribution without exposing editorial metadata', async () => {
+async function verifyRendering(noindex) {
   const root = path.resolve(__dirname, '..');
   const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'post-metadata-rendering-'));
   let hexo;
@@ -40,6 +40,7 @@ test('renders articles and public attribution without exposing editorial metadat
     const config = yaml.load(fs.readFileSync(path.join(root, '_config.yml'), 'utf8'));
     config.source_dir = source;
     config.public_dir = output;
+    config.theme_config = { ...config.theme_config, noindex };
     const configPath = path.join(temporary, 'config.yml');
     fs.writeFileSync(configPath, yaml.dump(config));
     hexo = new Hexo(root, { silent: true, config: configPath, output: temporary });
@@ -49,6 +50,12 @@ test('renders articles and public attribution without exposing editorial metadat
     for (const file of fs.readdirSync(output, { recursive: true })) {
       if (!/\.(html|xml)$/.test(file)) continue;
       const content = fs.readFileSync(path.join(output, file), 'utf8');
+      if (file.endsWith('.html')) {
+        const head = content.match(/<head>([\s\S]*?)<\/head>/);
+        assert.ok(head, `Missing HTML head in ${file}`);
+        const robotsTags = head[1].match(/<meta name="robots" content="noindex, nofollow">/g) || [];
+        assert.equal(robotsTags.length, noindex ? 1 : 0, `Unexpected robots directive in ${file}`);
+      }
       assert.doesNotMatch(content,
         /hidden-author-one|hidden-author-two|71\.82\.93|editorial|source_url/,
         `Management metadata leaked into ${file}`);
@@ -74,4 +81,9 @@ test('renders articles and public attribution without exposing editorial metadat
     if (hexo) await hexo.exit();
     fs.rmSync(temporary, { recursive: true, force: true });
   }
-});
+}
+
+for (const noindex of [true, false]) {
+  test(`renders public attribution without editorial metadata with noindex=${noindex}`,
+    () => verifyRendering(noindex));
+}

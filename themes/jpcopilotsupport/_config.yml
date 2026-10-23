@@ -3,11 +3,14 @@ menu:
   Home: /
   Archives: /archives
   サポート情報: https://cssjpn.github.io/
-  Microsoft Copilot Blog: https://www.microsoft.com/en-us/copilot/blog/
+  US Microsoft Copilot Blog: https://techcommunity.microsoft.com/category/microsoft-copilot/blog/microsoft-copilot-blog
   US Microsoft 365 Developer Blog: https://devblogs.microsoft.com/microsoft365dev/
   About: /about
 
 rss: /atom.xml
+
+# Search indexing: set to false and redeploy when ready for search engines.
+noindex: true
 
 # Content
 excerpt_link: Read More
