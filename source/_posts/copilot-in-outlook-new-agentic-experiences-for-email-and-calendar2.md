@@ -60,7 +60,7 @@ Copilot は、ユーザーの設定に基づき、プロアクティブに予定
 - **スケジュールの調整:** *来週予定している部下との 1:1 会議を、その週の金曜午後にすべて再調整してください。*
 - **アジェンダの作成:** *明日の製品導入スタンドアップ向けにアジェンダを作成してください。未解決のブロッカー、担当者の割り当て、Go/No-Go 判断に焦点を当ててください。*
 
-**提供時期:** 4 月 27 日より、Frontier プログラム経由で Windows 版 Outlook (訳者注：新しい Outlook) と Outlook on the web で提供されます。
+**提供時期:** 4 月 27 日より、Frontier プログラム経由で Windows 版 Outlook (訳者注: 新しい Outlook) と Outlook on the web で提供されます。
 
 ### 優先事項に合わせて時間を調整する
 <iframe width="100%" height="480" src="https://medius.microsoft.com/Embed/video-nc/cb4a1d60-d0fb-4863-be65-27c3d90da487" title="Scenario 3 - Calendar Layers" allowfullscreen="allowfullscreen" allow="fullscreen; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
@@ -75,7 +75,7 @@ Copilot は、ユーザーの設定に基づき、プロアクティブに予定
 - **時間の優先順位付け:** *来週の予定表を確認し、アウトプットの質を維持しながら会議の負荷を下げられるように、辞退・フォロー参加・委任・非同期化すべき会議を提案してください。*
 - **会議の準備:** *明日の [customer name] との会議に向けて準備を手伝ってください。把握しておくべき情報、確認すべき質問、注意すべきリスクを整理してください。*
 
-**提供時期:** 4 月 27 日より、Frontier プログラム経由で Windows 版 Outlook (訳者注：新しい Outlook) と Outlook on the web で提供されます。
+**提供時期:** 4 月 27 日より、Frontier プログラム経由で Windows 版 Outlook (訳者注: 新しい Outlook) と Outlook on the web で提供されます。
 
 ## 今すぐ始める
 
