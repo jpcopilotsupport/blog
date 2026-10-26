@@ -4,6 +4,11 @@
     <!-- <%- partial('post/category') %> -->
   </div>
   <div class="article-inner">
+    <% if (!index && post.cover){ %>
+      <div class="article-cover">
+        <img src="<%= url_for(/^(?:https?:\/\/|\/)/i.test(post.cover) ? post.cover : post.path + post.cover) %>" alt="<%= post.cover_alt || '' %>" itemprop="image">
+      </div>
+    <% } %>
     <%- partial('post/gallery') %>
     <% if (post.link || post.title){ %>
       <header class="article-header-single">
