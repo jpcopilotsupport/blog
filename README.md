@@ -18,6 +18,41 @@ The existing command names are retained, but original posts are also validated.
 In Windows PowerShell, use `npm.cmd run validate:translations -- --all` to
 ensure the argument is passed through to the validator.
 
+### Translation commands in VS Code
+
+The commands are available as workspace skills in skills-compatible environments
+such as Copilot CLI / SDK, and as prompt files in the VS Code Chat view's Local
+harness:
+
+- `/translate <URL>`: create a Japanese summary translation of an English article
+  with the [translation skill](.github/skills/translate/SKILL.md) or
+  [translation prompt](.github/prompts/translate.prompt.md).
+- `/update <URL>`: find the existing Japanese translation by its source URL,
+  compare it with the current original, update the relevant content and metadata,
+  validate it, and open a local preview with the
+  [update skill](.github/skills/update/SKILL.md) or
+  [update prompt](.github/prompts/update.prompt.md).
+
+The skills read the existing prompt bodies as shared workflow instructions, so
+versioning and review behavior stay consistent without requiring prompt-file
+support in the selected environment. Run them from this repository. Start a new
+session after adding the skills if the current session does not list them yet.
+If both a skill and a prompt appear with the same name in Local chat, either
+entry uses the same workflow.
+
+The update command preserves the article's filename and initial publication date.
+Both commands first validate the draft and open a local preview, then include a
+sentence-by-sentence review against the full original. They show the preview URL,
+coverage, and a comparison table of
+wording, omissions, and differences in certainty or obligation, then wait for
+the operator to choose expressions while viewing the preview. The preview stays
+available during selection; adopted changes are revalidated, rebuilt, and checked
+in the refreshed preview. See the
+[review procedure](docs/article-templates.md#原文との逐文レビュー).
+If no update is needed, it leaves the article unchanged. Neither an update Issue
+nor a pull request is required for this interactive workflow. Confirm when the
+preview server can be stopped after reviewing the result.
+
 ## Deployment
 
 Pushes to `main` run validator tests, build the site with Node.js 22, and deploy

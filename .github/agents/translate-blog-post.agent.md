@@ -41,7 +41,8 @@ disable-model-invocation: false
    - 原文の意味と構造を維持して抄訳する。記事構造、見出し階層、本文とキャプションの対応を信頼できる形で判別できない場合は推測しない。
 4. **記事の作成**
    - `source/_posts/<記事スラッグ>.md` を作成する。
-   - [参照用ひな形](../../docs/article-templates.md) の抄訳記事を使い、`editorial.type: translation`、`editorial.version: "1.0.0"` と確認した正規 URL の `editorial.source_url` を設定する。URL は本文冒頭の出典と一致させる。
+   - [参照用ひな形](../../docs/article-templates.md) の抄訳記事を使い、`editorial.type: translation` と確認した正規 URL の `editorial.source_url` を設定する。URL は本文冒頭の出典と一致させる。
+   - `editorial.version` は [バージョンの管理](../../docs/article-templates.md#バージョンの管理) に従う。原文の記事バージョンが `A.B` なら初回は `"A.B.0"` とする。原文に記事バージョンがないと確認できた場合は `"1.0.0"` で開始する。製品や API の版番号を使わず、取得不足で原文の版番号の有無を判断できない場合は理由を報告して終了する。既存記事を更新する指示がある場合は、更新用エージェントの [front matter・本文更新ルール](./update-translated-blog-post.agent.md#作業手順) に従う。
    - `editorial.authors` には依頼で明示された実際の日本語記事担当者の GitHub ハンドルを配列で設定する。確認できない場合は Issue 作成者・Bot・原文著者から推測せず、必要な担当者情報を報告して終了する。レビュー担当者は記録しない。
    - `date` には原文の公開日ではなく、この抄訳記事を最初に公開する日本時間の日時を `YYYY-MM-DD HH:mm` 形式で設定する。秒は記載しない。公開日時が別途指定されていない新規記事では、cloud agent が作業を開始した日本時間の日時を `date` に使用する。新規記事では `lastupdate` を設定しない。
    - 翻訳記事を更新する場合は、日本語記事を実際に更新した日本時間の日付を `YYYY-MM-DD` 形式で `lastupdate` に設定する。原文の公開日や更新日を `date` または `lastupdate` としてコピーしない。
