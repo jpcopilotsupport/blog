@@ -7,6 +7,8 @@ const path = require('node:path');
 const test = require('node:test');
 const yaml = require('js-yaml');
 const Hexo = require('hexo');
+const vm = require('node:vm');
+const { Readable } = require('node:stream');
 const { TRANSLATION_SUFFIX, validateFile } = require('../scripts/validate-translated-posts');
 
 async function verifyRendering(noindex) {
@@ -72,6 +74,12 @@ async function verifyRendering(noindex) {
       const sections = feed.match(new RegExp(`<${element} type="html">[\\s\\S]*?</${element}>`, 'g'));
       assert.ok(sections, `Missing Atom ${element}`);
       assert.equal(sections.join('').split(sourceUrl).length - 1, 1);
+      assert.equal(sections.length, 2, `Missing article ${element}`);
+      if (element === 'content') {
+        for (const section of sections) {
+          assert.match(section, /<!\[CDATA\[[\s\S]*Test article body\.[\s\S]*\]\]>/);
+        }
+      }
     }
     assert.equal(original.includes(sourceUrl), false);
     assert.equal(sitemap.includes(sourceUrl), false);
@@ -87,3 +95,33 @@ for (const noindex of [true, false]) {
   test(`renders public attribution without editorial metadata with noindex=${noindex}`,
     () => verifyRendering(noindex));
 }
+
+test('Atom HTML compatibility preserves CDATA, existing types and non-Atom feeds', async () => {
+  const xml = '<feed><entry><content><![CDATA[<content>example</content>]]></content>' +
+    '<summary type="html"><![CDATA[<summary>example</summary>]]></summary>' +
+    '</entry></feed>';
+  let filter;
+  const written = new Map();
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname, '..', 'scripts',
+    'atom-feed-html-types.js'), 'utf8'), {
+    Buffer,
+    hexo: { extend: { filter: { register(name, callback) {
+      assert.equal(name, 'after_generate');
+      filter = callback;
+    } } } }
+  });
+  const context = {
+    config: { feed: { enable: true, type: ['rss2', 'atom'], path: ['rss.xml', 'atom.xml'] } },
+    locals: { get: () => [{ title: 'test' }] },
+    route: {
+      get(file) {
+        assert.equal(file, 'atom.xml');
+        return Readable.from([xml]);
+      },
+      set(file, content) { written.set(file, content); }
+    }
+  };
+  await filter.call(context);
+  assert.equal(written.size, 1);
+  assert.equal(written.get('atom.xml'), xml.replace('<content>', '<content type="html">'));
+});

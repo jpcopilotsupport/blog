@@ -101,6 +101,13 @@ runtimes patched separately and plan the next major migration before Node.js
 
 ## Launch and sitemap
 
+The Atom feed includes full article HTML and a summary. The
+[Atom compatibility filter](scripts/atom-feed-html-types.js) preserves the
+`type="html"` declaration omitted by `hexo-generator-feed` 4.0.0. It only
+adds the missing types to Atom content/summary elements, leaving CDATA payloads
+unchanged. Keep the rendering tests when upgrading the feed generator; the
+filter can be removed once the upstream generator supplies these types.
+
 The Copilot support team was established on October 1, 2026. The blog launched
 on October 23, 2026.
 
