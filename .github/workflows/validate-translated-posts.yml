@@ -9,6 +9,7 @@ on:
       - '.github/workflows/**'
       - '.github/dependabot.yml'
       - 'scripts/validate-translated-posts.js'
+      - 'scripts/atom-feed-html-types.js'
       - 'test/validate-translated-posts.test.js'
       - 'test/post-metadata-rendering.test.js'
       - 'scaffolds/post.md'
