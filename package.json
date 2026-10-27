@@ -7,7 +7,7 @@
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server",
-    "test:translation-validation": "node --test test/validate-translated-posts.test.js test/post-metadata-rendering.test.js test/post-cover-rendering.test.js",
+    "test:translation-validation": "node --test test/validate-translated-posts.test.js test/post-metadata-rendering.test.js test/post-cover-rendering.test.js test/pr-validation-workflow.test.js",
     "validate:translations": "node scripts/validate-translated-posts.js"
   },
   "hexo": {

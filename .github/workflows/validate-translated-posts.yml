@@ -3,20 +3,6 @@ name: Validate translated posts
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
-    paths:
-      - 'source/_posts/**'
-      - '.github/copilot-instructions.md'
-      - '.github/workflows/**'
-      - '.github/dependabot.yml'
-      - 'scripts/validate-translated-posts.js'
-      - 'scripts/atom-feed-html-types.js'
-      - 'test/validate-translated-posts.test.js'
-      - 'test/post-metadata-rendering.test.js'
-      - 'scaffolds/post.md'
-      - 'scaffolds/draft.md'
-      - 'docs/article-templates.md'
-      - 'package.json'
-      - 'package-lock.json'
 
 permissions:
   contents: read

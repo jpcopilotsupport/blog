@@ -89,10 +89,12 @@ enabled in the repository's **Settings > Code security**. Security updates
 are triggered by alerts independently of the weekly version-update schedule;
 a compatible fix must be available for Dependabot to create a repair PR.
 
-Package and workflow changes trigger the existing pull-request validation.
-Review the change and require successful tests/builds before manually merging;
-this configuration does not enable automatic merging. Merging to `main`
-triggers deployment.
+Every pull request triggers the build and validation tests, regardless of which
+files changed, including theme and site configuration changes. The article
+validator checks only changed articles in pull requests; deployment validates
+all articles. Review the change and require successful tests/builds before
+manually merging; this configuration does not enable automatic merging.
+Merging to `main` triggers deployment.
 
 Dependabot updates npm packages and Action references, not the `node-version`
 range in workflows or Node.js installed on contributor PCs. Keep those
