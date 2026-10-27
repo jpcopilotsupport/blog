@@ -1,13 +1,14 @@
 ---
 title: "Copilot in Outlook: メールと予定表の新しいエージェント体験 Part 2"
 date: 2026-04-30 10:00:00
+lastupdate: 2026-10-27
 tags:
   - Copilot for Outlook
 editorial:
   authors:
     - jpcopilotsupport
   type: translation
-  version: "1.0.0"
+  version: "3.0.0"
   source_url: https://techcommunity.microsoft.com/blog/outlook/copilot-in-outlook-new-agentic-experiences-for-email-and-calendar/4514601
 ---
 ※ この記事は、[Copilot in Outlook: New agentic experiences for email and calendar](https://techcommunity.microsoft.com/blog/outlook/copilot-in-outlook-new-agentic-experiences-for-email-and-calendar/4514601) の抄訳です。最新の情報はリンク先をご確認ください。この記事は Microsoft 365 Copilot および GitHub Copilot を使用して抄訳版の作成が行われています。
@@ -49,7 +50,7 @@ Copilot in Outlook は、予定表でも継続的に支援します。スケジ�
 <i>デモ用のため、一部を省略しています。</i>
 </div>
 
-Copilot は、ユーザーの設定に基づき、プロアクティブに予定表を管理することができます。会議出席依頼への応答、1 対 1 の予定が重複した場合には再スケジュールを行ったり、必要に応じたフォーカス時間の確保にも対応します。
+Copilot は、ユーザーの設定に基づき、プロアクティブに予定表を管理することができます。会議出席依頼への応答、1 対 1 の予定が重複した場合の再スケジュール、会議室の再予約、必要に応じたフォーカス時間の確保にも対応します。
 
 自分で変更を行いたい場合も、Copilot がチャットまたは会議フォーム上から支援をします。会議の再調整やキャンセル、詳細情報の更新、さらに目的や参加者、文体に合わせたアジェンダの下書き作成が可能です。
 
