@@ -55,10 +55,19 @@ preview server can be stopped after reviewing the result.
 
 ## Deployment
 
-Pushes to `main` run validator tests, build the site with Node.js 22, and deploy
+Pushes to `main` run validator tests, build the site with Node.js 24, and deploy
 the generated `public` directory using the official GitHub Pages actions in
 [the deployment workflow](.github/workflows/deploy-github-pages.yml).
 The workflow can also be started manually.
+
+Deployment and pull-request validation use Node.js `>=24.22.1 <25` with
+`check-latest: true`, so an older version preinstalled on a runner is not
+selected instead of the latest matching 24.x release. Version 24.22.1 is the
+minimum because it includes the fix for
+[CVE-2026-111497 (Node2Shell)](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases).
+Use Node.js 24.22.1 or a later 24.x release for local development as well.
+After deploying a workflow change, confirm the resolved version in the
+Actions **Set up Node.js** log.
 
 Set the repository's Pages source to **GitHub Actions** and allow `main` to
 deploy to the `github-pages` environment. The workflow requests `contents: read`,
@@ -66,6 +75,29 @@ deploy to the `github-pages` environment. The workflow requests `contents: read`
 secret is required. It does not push build output to a `gh-pages` branch.
 The existing `npm run deploy` script is a legacy Git deployment command and is
 not used by this workflow.
+
+## Dependency updates
+
+[Dependabot configuration](.github/dependabot.yml) checks npm dependencies and
+GitHub Actions weekly on Mondays at 09:00 Asia/Tokyo. Minor and patch npm
+version updates are grouped; major npm updates and Action updates remain
+separate for review. Each ecosystem can have up to five open version-update
+pull requests.
+
+Keep the dependency graph, Dependabot alerts, and Dependabot security updates
+enabled in the repository's **Settings > Code security**. Security updates
+are triggered by alerts independently of the weekly version-update schedule;
+a compatible fix must be available for Dependabot to create a repair PR.
+
+Package and workflow changes trigger the existing pull-request validation.
+Review the change and require successful tests/builds before manually merging;
+this configuration does not enable automatic merging. Merging to `main`
+triggers deployment.
+
+Dependabot updates npm packages and Action references, not the `node-version`
+range in workflows or Node.js installed on contributor PCs. Keep those
+runtimes patched separately and plan the next major migration before Node.js
+24 reaches its scheduled end of life on April 30, 2028.
 
 ## Launch and sitemap
 

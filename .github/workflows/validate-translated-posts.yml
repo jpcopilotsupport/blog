@@ -6,7 +6,8 @@ on:
     paths:
       - 'source/_posts/**'
       - '.github/copilot-instructions.md'
-      - '.github/workflows/validate-translated-posts.yml'
+      - '.github/workflows/**'
+      - '.github/dependabot.yml'
       - 'scripts/validate-translated-posts.js'
       - 'test/validate-translated-posts.test.js'
       - 'test/post-metadata-rendering.test.js'
@@ -36,7 +37,8 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: '>=24.22.1 <25'
+          check-latest: true
           cache: npm
 
       - name: Install dependencies
@@ -61,7 +63,8 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: '>=24.22.1 <25'
+          check-latest: true
           cache: npm
 
       - name: Install dependencies
