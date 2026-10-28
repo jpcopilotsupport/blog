@@ -55,17 +55,17 @@ preview server can be stopped after reviewing the result.
 
 ## Deployment
 
-Pushes to `main` run validator tests, build the site with Node.js 24, and deploy
+Pushes to `main` run validator tests, build the site with Node.js 26, and deploy
 the generated `public` directory using the official GitHub Pages actions in
 [the deployment workflow](.github/workflows/deploy-github-pages.yml).
 The workflow can also be started manually.
 
-Deployment and pull-request validation use Node.js `>=24.22.1 <25` with
+Deployment and pull-request validation use Node.js `>=26.13.0 <27` with
 `check-latest: true`, so an older version preinstalled on a runner is not
-selected instead of the latest matching 24.x release. Version 24.22.1 is the
-minimum because it includes the fix for
-[CVE-2026-111497 (Node2Shell)](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases).
-Use Node.js 24.22.1 or a later 24.x release for local development as well.
+selected instead of the latest matching 26.x release. Version 26.13.0 is the
+minimum because it is the first Node.js 26 LTS release
+([Lithium](https://nodejs.org/en/blog/release/v26.13.0)).
+Use Node.js 26.13.0 or a later 26.x release for local development as well.
 After deploying a workflow change, confirm the resolved version in the
 Actions **Set up Node.js** log.
 
@@ -99,7 +99,7 @@ Merging to `main` triggers deployment.
 Dependabot updates npm packages and Action references, not the `node-version`
 range in workflows or Node.js installed on contributor PCs. Keep those
 runtimes patched separately and plan the next major migration before Node.js
-24 reaches its scheduled end of life on April 30, 2028.
+26 reaches its scheduled end of life on April 30, 2029.
 
 ## Launch and sitemap
 

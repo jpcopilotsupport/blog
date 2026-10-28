@@ -24,7 +24,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: '>=24.22.1 <25'
+          node-version: '>=26.13.0 <27'
           check-latest: true
           cache: npm
 
@@ -50,7 +50,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: '>=24.22.1 <25'
+          node-version: '>=26.13.0 <27'
           check-latest: true
           cache: npm
 

@@ -10,6 +10,18 @@ const workflow = yaml.load(fs.readFileSync(
   path.join(__dirname, '..', '.github', 'workflows', 'validate-translated-posts.yml'), 'utf8'
 ));
 
+test('deployment and PR validation use the latest Node.js 26 LTS release', () => {
+  const deployment = yaml.load(fs.readFileSync(
+    path.join(__dirname, '..', '.github', 'workflows', 'deploy-github-pages.yml'), 'utf8'
+  ));
+  for (const [jobName, job] of Object.entries({ ...workflow.jobs, ...deployment.jobs })) {
+    const setupSteps = job.steps.filter((step) => step.uses?.startsWith('actions/setup-node@'));
+    assert.equal(setupSteps.length, 1, `Expected one Node.js setup step in ${jobName}`);
+    assert.equal(setupSteps[0].with['node-version'], '>=26.13.0 <27');
+    assert.equal(setupSteps[0].with['check-latest'], true);
+  }
+});
+
 test('PR validation runs regardless of changed files', () => {
   const trigger = workflow.on.pull_request;
   for (const event of ['opened', 'synchronize', 'reopened', 'ready_for_review']) {
