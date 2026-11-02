@@ -42,7 +42,9 @@ async function verifyRendering(noindex) {
     const config = yaml.load(fs.readFileSync(path.join(root, '_config.yml'), 'utf8'));
     config.source_dir = source;
     config.public_dir = output;
-    config.theme_config = { ...config.theme_config, noindex };
+    if (noindex !== undefined) {
+      config.theme_config = { ...config.theme_config, noindex };
+    }
     const configPath = path.join(temporary, 'config.yml');
     fs.writeFileSync(configPath, yaml.dump(config));
     hexo = new Hexo(root, { silent: true, config: configPath, output: temporary });
@@ -90,6 +92,9 @@ async function verifyRendering(noindex) {
     fs.rmSync(temporary, { recursive: true, force: true });
   }
 }
+
+test('allows search indexing with the production configuration',
+  () => verifyRendering());
 
 for (const noindex of [true, false]) {
   test(`renders public attribution without editorial metadata with noindex=${noindex}`,

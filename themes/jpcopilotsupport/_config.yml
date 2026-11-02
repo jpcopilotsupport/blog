@@ -9,8 +9,8 @@ menu:
 
 rss: /atom.xml
 
-# Search indexing: set to false and redeploy when ready for search engines.
-noindex: true
+# Search indexing is enabled. Set to true to temporarily discourage indexing.
+noindex: false
 
 # Content
 excerpt_link: Read More

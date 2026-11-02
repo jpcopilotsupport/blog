@@ -113,6 +113,11 @@ filter can be removed once the upstream generator supplies these types.
 The Copilot support team was established on October 1, 2026. The blog launched
 on October 23, 2026.
 
+Search indexing is enabled (`noindex: false` in the theme configuration).
+Theme-rendered pages do not emit a restrictive robots meta tag. Changes take
+effect on the public site after deployment; search engines determine when to
+crawl and index pages.
+
 `npm run build` generates `public/sitemap.xml` using `hexo-generator-sitemap`.
 Do not add a static `source/sitemap.xml`, which would conflict with the generated
 sitemap. The sitemap uses an article's `lastupdate` date (`YYYY-MM-DD`) when

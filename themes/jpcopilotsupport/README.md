@@ -32,12 +32,14 @@ Edit this theme's [`_config.yml`](_config.yml):
 
 - `menu`: shared links for the header and collapsible navigation.
 - `rss`: feed URL, currently `/atom.xml`.
-- `noindex`: currently `true`, temporarily emitting
+- `noindex`: currently `false`, allowing search indexing without emitting a
+  restrictive robots meta tag. Set this to `true` to temporarily emit
   `<meta name="robots" content="noindex, nofollow">` in all theme-rendered HTML
-  pages. To allow search indexing again, set this to `false`, clean, build,
-  and redeploy. Use YAML booleans, not quoted strings. This does not block
-  crawling or public access, does not apply to XML feeds or other non-HTML
-  files, and does not immediately remove previously indexed pages.
+  pages. After changing it, clean, build, and redeploy. Use YAML booleans, not
+  quoted strings. This setting does not block crawling or public access and
+  does not apply to XML feeds or other non-HTML files. Search engines determine
+  when to crawl and index pages; changing it does not immediately change
+  search results.
 - `excerpt_link`: label for the article excerpt link.
 - `sidebar`: `left`, `right`, `bottom`, or `false`.
 - `widgets`: sidebar widgets. Available names are `category`, `tag`, `tagcloud`,
