@@ -1,6 +1,7 @@
 ---
 title: "Microsoft Copilot の新機能: 2026 年 10 月"
 date: 2026-11-02 14:03
+lastupdate: 2026-11-17
 tags:
   - Microsoft Copilot
 cover: image-00.png
@@ -9,7 +10,7 @@ editorial:
   authors:
     - tyamauch1
   type: translation
-  version: "3.0.0"
+  version: "5.0.0"
   source_url: https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/what%e2%80%99s-new-in-microsoft-copilot--october-2026/4568528
 ---
 ※ この記事は、[What’s New in Microsoft Copilot | October 2026](https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/what%e2%80%99s-new-in-microsoft-copilot--october-2026/4568528) の抄訳です。最新の情報はリンク先をご確認ください。この記事は Microsoft 365 Copilot および GitHub Copilot を使用して抄訳版の作成が行われています。
@@ -46,7 +47,7 @@ Microsoft Copilot の新機能、2026 年 10 月版をお届けします。毎�
 
 **ホーム**は、Copilot アプリで仕事を始める場所です。今回、**Chat と Cowork が 1 か所にまとまり**、新しい**共通のナビゲーション ウィンドウ**も加わります。Chat と Cowork は、仕事を進めるための 2 つの方法を提供します。Microsoft Copilot Chat (Copilot Chat) では、質問への回答、アイデアの検討、操作の実行、下書きの作成ができます。一方、Cowork には、複雑で複数のステップからなるタスクを任せられます。共通のナビゲーション ウィンドウは、次のような新しい構成になります。
 
-- **プラグイン**: エージェント、スキル、コネクタを 1 か所で見つけて利用できます。
+- **エージェントとプラグイン**: エージェント、スキル、コネクタを 1 か所で見つけて利用できます。
 - **自動化**: スケジュールに従って、または指定したイベントの発生時に Cowork のタスクを実行します。手動でプロンプトを入力しなくても、定型業務を進められます。
 - **Workspaces**: Copilot アプリ内で、継続的な業務を Copilot と一緒に進めるための、チームの共有スペースです。
 - **プロジェクト**: 関連するタスク、指示、コンテキストをまとめます。
@@ -54,7 +55,7 @@ Microsoft Copilot の新機能、2026 年 10 月版をお届けします。毎�
 
 この更新は 10 月に Frontier への展開が進められており、11 月に全世界へ展開されます。
 
-![Chat が選択された Copilot アプリのホーム画面](image-01.jpg)
+![Chat が選択された Copilot アプリのホーム画面](image-01.png)
 
 **プロジェクト**は、関連するチャット、タスク、指示、コンテキストをまとめる専用のスペースです。毎回コンテキストを組み立て直さずに、仕事を再開できます。プロジェクト全体に適用する指示を設定したり、ファイル、会議、チャット、タスクを共通のコンテキストとして追加したりできます。また、プロジェクトのタスクが作成したファイルには、集約された [Outputs] ビューからアクセスできます。各プロジェクトのテーマを絞りながら、継続的な仕事のコンテキストと一貫性を維持できます。詳しくは、[プロジェクトの使い方](https://learn.microsoft.com/copilot/cowork/cowork-projects)をご覧ください。この機能は 10 月に Cowork に展開され、11 月に Copilot Chat への展開が進められます。
 
@@ -68,7 +69,7 @@ Word、Excel、PowerPoint の Copilot は、**デザインが刷新**されま�
 
 ![Excel アプリ内の Copilot の新しいデザイン](image-04.png)
 
-スキルは、ノウハウを Copilot が自動的に適用できる再利用可能な機能に変えます。作業の高速化、結果の一貫性の向上、チーム内での知識共有のしやすさにつながります。**これまで Cowork で利用できたスキルが Copilot Chat にも拡張**され、日々の仕事の流れの中で、再利用可能な専門知識を直接活用できるようになります。利用者は、Copilot Chat で自然言語を使って独自のスキルを作成し、[Plugins] セクションで同僚や組織が共有したスキルを見つけ、ワークフローの中でいつ、どのようにスキルを使うかを選べます。再利用できる指示や専門知識を蓄積することで、チームは Copilot の各エクスペリエンスに一貫した手法を広げられます。この機能は 11 月に展開されます。
+スキルは、ノウハウを Copilot が自動的に適用できる再利用可能な機能に変えます。作業の高速化、結果の一貫性の向上、チーム内での知識共有のしやすさにつながります。**これまで Cowork で利用できたスキルが Copilot Chat にも拡張**され、日々の仕事の流れの中で、再利用可能な専門知識を直接活用できるようになります。利用者は、Copilot Chat で自然言語を使って独自のスキルを作成し、[Agents & Plugins] セクションで同僚や組織が共有したスキルを見つけ、ワークフローの中でいつ、どのようにスキルを使うかを選べます。再利用できる指示や専門知識を蓄積することで、チームは Copilot の各エクスペリエンスに一貫した手法を広げられます。この機能は 11 月に展開されます。
 
 ![チャットの指示をスキルとして保存するよう Copilot が提案している画面](image-05.png)
 
@@ -128,7 +129,7 @@ Cowork では、新しい依頼で**過去の Copilot Chat の会話や Cowork �
 
 ### Copilot in Excel の会計スキル、データ クレンジング スキル、対話型キャンバス
 
-**Excel の会計スキル**は、財務に関する推論と Excel 標準の機能を組み合わせ、会計担当者による勘定照合、仕訳の準備、報告に向けた財務実績の分析を支援します。Copilot はブック内で直接作業します。変更内容を確認でき、元に戻せるため、財務の専門家は結果をレビューし、最終判断を自分で行えます。この機能は 10 月に Frontier に展開され、[11 月に全世界へ展開されます](https://www.microsoft.com/microsoft-365/roadmap?id=569424)。
+**Excel の会計スキル**は、財務に関する推論と Excel 標準の機能を組み合わせ、会計担当者による勘定照合、仕訳の準備、報告に向けた財務実績の分析を支援します。Copilot はブック内で直接作業します。変更内容を確認でき、元に戻せるため、財務の専門家は結果をレビューし、最終判断を自分で行えます。この機能は 10 月に Frontier に展開され、11 月に全世界へ展開されます。
 
 <div style="position: relative; padding-top: 56.25%;">
 <iframe src="https://medius.microsoft.com/Embed/video-nc/918abc8b-cbe3-476c-a0c6-1760fc2a8d48?r=258997996487" title="Excel Accounting Skills" allow="autoplay 'none'" allowfullscreen="allowfullscreen" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
@@ -140,7 +141,7 @@ Cowork では、新しい依頼で**過去の Copilot Chat の会話や Cowork �
 <iframe src="https://medius.microsoft.com/Embed/video-nc/66c05bb9-763f-4e68-b6ba-745b2842a1d8?r=312004797077" title="Interactive Canvas Demo" allow="autoplay 'none'" allowfullscreen="allowfullscreen" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
 </div>
 
-**Excel の対話型キャンバス**は、Copilot を使って、ブックのデータを主要なビジュアル、指標、インサイトを備えた、見栄えのよいレポートに変えます。元のデータが変わるとキャンバスも自動更新され、Copilot とチャットして変更することもできます。手作業でレポートを作らなくても、チームは最新のデータを共有できる形で確認できます。この機能は 10 月に Insiders に展開され、11 月に全世界へ展開されます。
+**Excel の対話型キャンバス**は、Copilot を使って、ブックのデータを主要なビジュアル、指標、インサイトを備えた、見栄えのよいレポートに変えます。元のデータが変わるとキャンバスも自動更新され、Copilot とチャットして変更することもできます。手作業でレポートを作らなくても、チームは最新のデータを共有できる形で確認できます。この機能は 10 月に Insiders に展開され、[11 月に全世界へ展開されます](https://www.microsoft.com/microsoft-365/roadmap?id=569424)。
 
 <div style="position: relative; padding-top: 56.25%;">
 <iframe src="https://medius.microsoft.com/Embed/video-nc/ece75f29-e5f0-4afd-a8bd-bd1f53a04717?r=1015626857913" title="Clean Data" allow="autoplay 'none'" allowfullscreen="allowfullscreen" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
@@ -168,7 +169,7 @@ Cowork では、新しい依頼で**過去の Copilot Chat の会話や Cowork �
 <iframe src="https://medius.microsoft.com/Embed/video-nc/6cd857bb-cd2c-4b7a-a590-6d3b2a74640c?r=21257866659" title="Interactive Slides" allow="autoplay 'none'" allowfullscreen="allowfullscreen" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
 </div>
 
-**テンプレート評価スキル**は、Copilot が生成するプレゼンテーションに影響する可能性のある問題を見つけ、ブランド キット用の PowerPoint テンプレートの準備を支援します。テンプレートを評価し、ブランド キットを公開する前に、潜在的な問題に対処するための具体的な推奨事項を示します。組織は事前にテンプレートを改善し、問題の可能性を評価済みのブランド キットを使って、Copilot にコンテンツを生成させられます。この機能は 10 月に展開されました。
+**テンプレート評価スキル**は、Copilot が生成するプレゼンテーションに影響する可能性のある問題を見つけ、ブランド キット用の PowerPoint テンプレートの準備を支援します。テンプレートを評価し、ブランド キットを公開する前に、潜在的な問題に対処するための具体的な推奨事項を示します。組織は事前にテンプレートを改善し、潜在的な問題の評価を済ませたブランド キットを使って、Copilot にコンテンツを生成させられます。この機能は 10 月に展開されました。
 
 **スキルの記録**では、繰り返し行うプレゼンテーションの作業を、再利用可能なスキルに変えられます。よく行うタスクを記録し、スキルとして保存して、同じ種類の仕事が必要になったときに再実行できます。毎回ゼロから始めずに、反復的なプレゼンテーションの作業を、より速く、一貫して完了するのに役立ちます。この機能は 10 月に展開されました。
 
@@ -240,7 +241,7 @@ Teams Phone 向け Queues アプリの**共有通話履歴**で Copilot を使�
 
 ### 政府機関向けクラウドの Copilot 編集機能
 
-**PowerPoint、Word、Excel の Copilot 編集機能が、Government Community Cloud (GCC) に展開されています。** 利用者は Copilot に依頼して、Excel のダッシュボード、PowerPoint の概要スライド、Word の表などのコンテンツを、組織の仕事のコンテキストを根拠に、ファイル内で直接作成・編集できます。この機能は 10 月に展開されました。
+**PowerPoint、Word、Excel の Copilot 編集機能が、Government Community Cloud (GCC) に展開されています。** 利用者は Copilot に依頼して、Excel のダッシュボード、PowerPoint の概要スライド、Word の表などのコンテンツを、組織の仕事のコンテキストを根拠に、ファイル内で直接作成・編集できます。この機能は [10 月に展開されました](https://www.microsoft.com/microsoft-365/roadmap?id=561322)。
 
 ## IT 管理者向けの機能
 
@@ -248,11 +249,11 @@ Teams Phone 向け Queues アプリの**共有通話履歴**で Copilot を使�
 
 ### Insights Agent と Workforce Insights Agent
 
-**Insights Agent** では、Copilot 内のエージェントの利用状況について、自然言語で質問できます。日次・週次・月次のアクティブ ユーザー、導入の傾向、エージェント同士の比較などを確認できます。早期アクセス プレビューの Insights Agent V2 (Frontier) では、管理者がフィードバックの共有を有効にすると、エージェントの所有者が、自分のエージェントに送信された高評価・低評価やコメントを確認できます。これらのインサイトは、作成者や管理者が導入状況を評価し、調査すべき点を見つけるための材料になります。この機能は [10 月に展開されました](https://www.microsoft.com/microsoft-365/roadmap?id=561322)。
+**Insights Agent** では、Copilot 内のエージェントの利用状況について、自然言語で質問できます。日次・週次・月次のアクティブ ユーザー、導入の傾向、エージェント同士の比較などを確認できます。早期アクセス プレビューの Insights Agent V2 (Frontier) では、管理者がフィードバックの共有を有効にすると、エージェントの所有者が、自分のエージェントに送信された高評価・低評価やコメントを確認できます。これらのインサイトは、作成者や管理者が導入状況を評価し、調査すべき点を見つけるための材料になります。この機能は 10 月に展開されました。
 
 ![エージェントのランキングと利用状況の指標を示す Insights Agent の回答](image-23.png)
 
-**Workforce Insights Agent** は、お客様自身の組織データを基に、信頼でき、コンテキストに即した回答を Copilot で提供します。管理者向けの専用ワークスペースで、組織の定義、データの説明、業務上のコンテキストを設定できます。また、人や組織に関する問い合わせで、AI がそのコンテキストをどのように使って推論するかを検証できます。この機能は 2025 年 12 月にパブリック プレビューに展開され、[11 月に展開されます](https://www.microsoft.com/microsoft-365/roadmap?id=515145)。
+**Workforce Insights Agent** は、お客様自身の組織データを基に、信頼でき、コンテキストに即した回答を Copilot で提供します。管理者向けの専用ワークスペースで、組織の定義、データの説明、業務上のコンテキストを設定できます。また、人や組織に関する問い合わせで、AI がそのコンテキストをどのように使って推論するかを検証できます。この機能は [11 月に Frontier に展開されます](https://www.microsoft.com/microsoft-365/roadmap?id=515145)。
 
 ![全体管理者向けの Workforce Insights Agent の設定画面](image-24.png)
 
