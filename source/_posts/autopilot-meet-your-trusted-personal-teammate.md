@@ -2,7 +2,7 @@
 title: "Autopilot: 信頼できるパーソナル チームメイト"
 date: 2026-11-18 17:24
 tags:
-  - Microsoft Copilot
+  - Autopilot
 editorial:
   authors:
     - tyamauch1
